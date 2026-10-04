@@ -6,31 +6,32 @@ export default function App() { return (    <main>      <section className="hero
         </h1>
 
         <p className="lede">
-          We diagnose read-only, fix minimally and reversibly, prove recovery in isolation, and leave monitoring plus evidence behind.
+          We help teams rescue fragile production systems, recover safely from failure,
+          and keep critical business state correct — with evidence left behind.
         </p>
 
         <div className="actions">
-          <a href="#capabilities">Explore capabilities</a>
-          <a href="#engagement" className="secondary">Production Reliability Review</a>
+          <a href="#engagement">Start a Production Reliability Review</a>
+          <a href="#capabilities" className="secondary">Explore capabilities</a>
         </div>
 
-        <div className="system-line" aria-label="ZUHAYR engineering lifecycle">
+        <div className="system-line" aria-label="ZUHAYR engineering lifecycle: build, break, recover, prove">
           <span>BUILD</span>
-          <b>?</b>
+          <b aria-hidden="true">→</b>
           <span>BREAK</span>
-          <b>?</b>
+          <b aria-hidden="true">→</b>
           <span>RECOVER</span>
-          <b>?</b>
+          <b aria-hidden="true">→</b>
           <span>PROVE</span>
         </div>
       </section>
 
       <section id="capabilities" className="placeholder">
-        <p className="eyebrow">CAPABILITY SURFACE</p>
+        <p className="eyebrow">CAPABILITIES</p>
         <h2>What we can help with</h2>
         <p className="lede small">Four problems we solve for teams running real systems.</p>
         <p className="sublede">
-          <strong>1. Production System Rescue & Reliability:</strong> Your SaaS looks running but is unreliable or fragile. We diagnose read-only first, find the smallest root cause, make minimal reversible changes, verify recovery, and leave evidence behind.
+          <strong>1. Production System Rescue & Reliability:</strong> Your system looks running but is unreliable or fragile. We diagnose read-only first, find the smallest root cause, make minimal reversible changes, verify recovery, and leave evidence behind.
         </p>
         <p className="sublede">
           <strong>2. Recovery & Resilience Assurance:</strong> You have backups but nobody knows if they will restore. We verify recovery through controlled isolated restore exercises, with integrity checks, reconciliation, and evidence. Current recovery proof is controlled internal lab / governed recovery witness work. It is not client production recovery evidence.
@@ -46,20 +47,17 @@ export default function App() { return (    <main>      <section className="hero
       <section id="case-study" className="placeholder">
         <p className="eyebrow">CASE STUDY</p>
         <h2>What a rescue looks like in practice</h2>
-        <p className="lede">
-          A containerized production system appeared healthy from the outside - all containers reported "running" - yet was completely inert inside. The database schema had never been initialized, no tables existed, and the background worker was stuck in a crash loop with 922 restarts. The aggregate readiness probe correctly reported "not ready": the system could not do its job.
+        <p className="sublede">
+          <strong>Problem:</strong> A containerized production system appeared healthy — every container reported “running” — yet was completely inert: the database schema had never been initialized, no tables existed, the background worker was stuck in a crash loop with 922 restarts, and the readiness probe correctly reported “not ready.”
         </p>
         <p className="sublede">
-          <strong>What We Found:</strong> Root cause was two missing database-connection configuration keys in a single environment file. The migration runner fell back to a loopback default that could never reach the database on the container network - schema, migration, topology, and image were all correct; the two missing keys were the entire incident.
+          <strong>Root cause:</strong> Two missing database-connection keys in a single environment file. The migration runner fell back to a loopback default that could never reach the database — schema, image, migration, and topology were all correct; the two keys were the entire incident.
         </p>
         <p className="sublede">
-          <strong>What We Changed:</strong> Configuration-only fix - the two missing keys were added to the production environment file. The prior file was preserved first so rollback was one command away. No code, image, or migration script was touched. Read-only reachability was proven before the real migration ran.
+          <strong>Intervention:</strong> Configuration-only fix — the two keys were added, with the prior file preserved first for one-command rollback. No code, image, or migration script was touched, and read-only reachability was proven before the real migration ran.
         </p>
         <p className="sublede">
-          <strong>How We Verified It:</strong> The migration applied cleanly on the first attempt after the fix. The background worker went from a crash loop to zero restarts with a clean error scan. At the database level, least-privilege was verified: non-superuser roles with no escalation rights, row-level security forced on every application table, and the worker proved unable to touch business tables. The running containers were verified to be the exact released artifact - same image, not merely the same tag - and an independent read-only verifier passed against the recovered system.
-        </p>
-        <p className="sublede">
-          <strong>Recovery & Durability:</strong> A fresh backup, hash-verified and integrity-checked, was restored into a fully isolated database (no network, no published ports). The first attempt failed visibly on missing cluster roles; the second attempt, after canonical credential-free role bootstrap, matched the live system structure exactly. The isolated target was then destroyed and production was verified unchanged. A sanitized recovery runbook was placed in independent private object storage with verified upload, independent read-back, and exact hash match.
+          <strong>Verified outcome:</strong> Migration applied cleanly on the first attempt; worker went from crash loop to zero restarts with a clean error scan; least-privilege verified at the database level; the running containers were verified to be the exact released artifact; and an independent read-only verifier passed. A hash-verified backup was restored into a fully isolated database — the first attempt failed visibly on missing cluster roles, the second matched the live structure exactly — then the isolated target was destroyed with production verified unchanged.
         </p>
         <table>
           <thead>
@@ -91,11 +89,6 @@ export default function App() { return (    <main>      <section className="hero
               <td className="tablerow">ready for owned components</td>
             </tr>
             <tr>
-              <td className="tablerow">Migration</td>
-              <td className="tablerow">failed closed, zero partial state</td>
-              <td className="tablerow">PASS single attempt</td>
-            </tr>
-            <tr>
               <td className="tablerow">Privileges</td>
               <td className="tablerow">unverified</td>
               <td className="tablerow">least-privilege roles, forced row-level security</td>
@@ -107,54 +100,36 @@ export default function App() { return (    <main>      <section className="hero
       <section id="how-we-work" className="placeholder">
         <p className="eyebrow">HOW WE WORK</p>
         <h2>Safer production change, from start to finish</h2>
-        <ul>
-          <li>Diagnose read-only before making any change</li>
-          <li>Change minimally and reversibly; preserve pre-change state for one-command rollback</li>
-          <li>Prove read-only reachability before committing the real migration</li>
-          <li>Migration applied cleanly on the first attempt after remediation</li>
-          <li>Prove recoverability with isolated restore rehearsals before claiming it</li>
-          <li>Deploy and observe scheduled operations layer; caught and fixed its own defect on day one</li>
-          <li>Close off-node durability with verified independent storage and independent read-back</li>
-          <li>Deliver a complete hashed evidence chain: every artifact checksummed, every failed attempt preserved and classified</li>
-        </ul>
-      </section>
-
-      <section id="outcome" className="placeholder">
-        <p className="eyebrow">WHAT THIS DEMONSTRATES</p>
-        <h2>Credible, verified recovery</h2>
-        <ul>
-          <li><strong>Safer production change:</strong> diagnose read-only first, change minimally and reversibly, prove recovery in isolation before claiming it</li>
-          <li><strong>Recoverability:</strong> proved restore in isolation before claiming it; two-run rehearsal pattern preserved in the record</li>
-          <li><strong>Reduced ambiguity during incidents:</strong> fail-closed diagnostics name the exact problem rather than leaving it vague</li>
-          <li><strong>Repeatable verification:</strong> independent read-only verifier pass, operations test suite green, observable monitoring discipline</li>
-          <li><strong>Durable recovery evidence:</strong> hash-verified independent storage with independent read-back; every artifact checksummed</li>
-          <li><strong>Cleaner operational handoff:</strong> complete evidence chain a buyer or auditor can re-verify independently</li>
-        </ul>
+        <ol className="stages">
+          <li>
+            <strong>Diagnose.</strong> Read-only first — establish what is actually failing before proposing any change.
+          </li>
+          <li>
+            <strong>Change safely.</strong> Minimal, reversible changes, with pre-change state preserved for one-command rollback.
+          </li>
+          <li>
+            <strong>Recover & reconcile.</strong> Prove recovery in isolation — restore rehearsals with integrity checks and reconciliation — before claiming it.
+          </li>
+          <li>
+            <strong>Leave evidence.</strong> Monitoring plus a hashed evidence chain: every artifact checksummed, every failed attempt preserved and classified.
+          </li>
+        </ol>
       </section>
 
       <section id="engagement" className="placeholder">
-        <p className="eyebrow">ENGAGEMENT FIT</p>
+        <p className="eyebrow">ENGAGEMENT</p>
         <h2>Production Reliability Review</h2>
         <p className="lede">
-          This capability is for existing containerized SaaS that is degraded, "running but not working," or at a standstill where teams fear touching it. We diagnose read-only, fix minimally and reversibly, prove recovery in isolation, and leave monitoring plus evidence behind. Explicitly not offered: SLA-backed operations, greenfield builds at scale, public-launch readiness, payment-provider integrations, or external identity integrations.
-        </p>
-      </section>
-
-      <p className="disclosure">
-        this proof comes from rescuing and operating our own production infrastructure - not from a client engagement. No client data is involved. (CL-18)
-      </p>
-
-      <section id="contact" className="placeholder">
-        <p className="eyebrow">ENGAGE</p>
-        <h2>Bring us the system that needs to keep working.</h2>
-        <p className="lede small">
-          Start with a Production Reliability Review. We begin read-only and establish what is actually failing before proposing changes. Read-only is how we start; deeper access is agreed only if the findings call for it.
+          For teams running containerized systems that are degraded, “running but not working,” or frozen because they feel unsafe to touch. We diagnose read-only, change minimally and reversibly, prove recovery in isolation, and leave monitoring plus evidence behind.
         </p>
         <p className="lede small">
-          We will never claim a service level not yet governed, and we never expose private evidence in our analysis.
+          We begin read-only; deeper access is agreed only if the findings call for it. Explicitly out of scope: SLA-backed operations, greenfield builds, public-launch readiness, payment-provider integrations, and external identity integrations.
+        </p>
+        <p className="disclosure">
+          Current public proof is controlled internal production/lab evidence — not client engagement evidence. No client data is involved. (CL-18)
         </p>
         <div className="actions">
-          <a href="mailto:admin@zuhayrsystems.com">admin@zuhayrsystems.com</a>
+          <a href="mailto:admin@zuhayrsystems.com">Start a Production Reliability Review — admin@zuhayrsystems.com</a>
         </div>
       </section>
     </main>
