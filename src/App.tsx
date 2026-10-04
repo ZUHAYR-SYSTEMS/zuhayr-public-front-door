@@ -27,13 +27,25 @@ export default function App() { return (    <main>      <section className="hero
 
       <section id="capabilities" className="placeholder">
         <p className="eyebrow">CAPABILITY SURFACE</p>
-        <h2>Production System Rescue & Reliability</h2>
-        <p className="lede small">Taking an existing containerized SaaS from fragile to operable</p>
+        <h2>What we can help with</h2>
+        <p className="lede small">Four problems we solve for teams running real systems.</p>
+        <p className="sublede">
+          <strong>1. Production System Rescue & Reliability:</strong> Your SaaS looks running but is unreliable or fragile. We diagnose read-only first, find the smallest root cause, make minimal reversible changes, verify recovery, and leave evidence behind.
+        </p>
+        <p className="sublede">
+          <strong>2. Recovery & Resilience Assurance:</strong> You have backups but nobody knows if they will restore. We verify recovery through controlled isolated restore exercises, with integrity checks, reconciliation, and evidence. Current recovery proof is controlled internal lab / governed recovery witness work. It is not client production recovery evidence.
+        </p>
+        <p className="sublede">
+          <strong>3. Enterprise / API Integration & Reconciliation:</strong> Retries, webhooks, and partial failures duplicate, lose, or disagree about work. We make retries safe, processing idempotent, and records reconcile, with explicit failure handling so authoritative records stay correct.
+        </p>
+        <p className="sublede">
+          <strong>4. Governed Automation:</strong> You want automation that does useful work without running out of control. We build bounded execution with clear approval and authority limits, observable outcomes, defined failure states, and evidence.
+        </p>
       </section>
 
       <section id="case-study" className="placeholder">
         <p className="eyebrow">CASE STUDY</p>
-        <h2>Production System Rescue & Reliability</h2>
+        <h2>What a rescue looks like in practice</h2>
         <p className="lede">
           A containerized production system appeared healthy from the outside - all containers reported "running" - yet was completely inert inside. The database schema had never been initialized, no tables existed, and the background worker was stuck in a crash loop with 922 restarts. The aggregate readiness probe correctly reported "not ready": the system could not do its job.
         </p>
@@ -136,8 +148,14 @@ export default function App() { return (    <main>      <section className="hero
         <p className="eyebrow">ENGAGE</p>
         <h2>Bring us the system that needs to keep working.</h2>
         <p className="lede small">
-          A Production Reliability Review starts with a read-only diagnosis. We will never claim a service level not yet governed, and we never expose private evidence in our analysis.
+          Start with a Production Reliability Review. We begin read-only and establish what is actually failing before proposing changes. Read-only is how we start; deeper access is agreed only if the findings call for it.
         </p>
+        <p className="lede small">
+          We will never claim a service level not yet governed, and we never expose private evidence in our analysis.
+        </p>
+        <div className="actions">
+          <a href="mailto:admin@zuhayrsystems.com">admin@zuhayrsystems.com</a>
+        </div>
       </section>
     </main>
   )
