@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { SiteFooter, SiteHeader } from '../components/layout'
 import { EvidenceObject } from '../components/evidence'
-import { ProblemPaths } from '../components/journey'
+import { PROBLEM_PATHS } from '../components/journey'
 import { PUBLIC_EVIDENCE } from '../evidence'
 import { LifecycleViz, Signature } from '../components/lifecycle'
 import { usePageMeta } from '../meta'
@@ -36,8 +36,8 @@ export default function Home() {
                 recovery actually works.
               </p>
               <div className="actions">
-                <Link className="btn" to="/production-reliability-review">
-                  Discuss a production problem
+                <Link className="btn" to="/explore">
+                  Explore ZUHAYR
                 </Link>
                 <a className="btn-ghost" href="#how-we-work">
                   Explore how we work
@@ -51,15 +51,35 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="problems" className="section" aria-labelledby="problems-title">
+        <section id="explore" className="section" aria-labelledby="explore-title">
           <div className="container">
-            <p className="eyebrow">01 — WHAT'S GOING WRONG?</p>
-            <h2 id="problems-title">Find your problem. See the starting point.</h2>
+            <p className="eyebrow">EXPLORE ZUHAYR</p>
+            <h2 id="explore-title">A governed engineering practice</h2>
             <p className="section-lede">
-              Seven familiar situations. Open yours to see a truthful first
-              step — a routing choice, not a diagnosis.
+              We solve problems the same way every time: read-only first,
+              smallest confirmed change, verified recovery, evidence preserved.
+              This is how we work — publicly, independently, and without
+              client-data claims.
             </p>
-            <ProblemPaths />
+            <h3 className="section-sub">WHAT BRINGS YOU HERE?</h3>
+            <div className="cards">
+              {PROBLEM_PATHS.map((problem, index) => {
+                return (
+                  <article className="card" key={problem.id}>
+                    <p className="card-num" aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')}
+                    </p>
+                    <h3>{problem.title}</h3>
+                    <p>
+                      {problem.detail}
+                    </p>
+                    <Link className="card-link" to={problem.linkTo}>
+                      {problem.linkLabel} ›
+                    </Link>
+                  </article>
+                )
+              })}
+            </div>
           </div>
         </section>
 
@@ -189,48 +209,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="flagship" className="section" aria-labelledby="flagship-title">
-          <div className="container narrow">
-            <p className="eyebrow">03 — FLAGSHIP CAPABILITY</p>
-            <h2 id="flagship-title">
-              Production System Rescue &amp; Reliability
-            </h2>
-            <p className="section-lede">
-              Taking an existing SaaS from fragile to operable: we find the
-              smallest safe path back, then prove the recovery actually works.
-            </p>
-            <details className="disclose">
-              <summary>How the rescue works, briefly</summary>
-              <div className="disclose-body">
-                <p>
-                  <strong>Situation:</strong> your system runs but cannot do
-                  its job — inert schema, crash-looping workers, misleading
-                  green dashboards.
-                </p>
-                <p>
-                  <strong>Philosophy:</strong> diagnose read-only first, fix
-                  the smallest confirmed cause, keep every step reversible,
-                  and verify with checks independent of the fix.
-                </p>
-                <p>
-                  <strong>Outcome:</strong> an operable system plus a written
-                  record — findings, verification evidence, and residual risks
-                  stated plainly.
-                </p>
-              </div>
-            </details>
-            <div className="actions">
-              <Link className="btn-ghost" to="/saas-production-rescue">
-                Production rescue capability ›
-              </Link>
-              <Link className="btn-ghost" to="/proof/production-rescue">
-                Read the rescue proof ›
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section id="method" className="section" aria-labelledby="method-title">
+<section id="method" className="section" aria-labelledby="method-title">
           <div className="container">
             <p className="eyebrow">04 — METHOD</p>
             <h2 id="method-title">The rescue sequence</h2>
@@ -345,24 +324,6 @@ export default function Home() {
                   <li>Verification evidence for each fix</li>
                   <li>Updated residual-risk record</li>
                 </ul>
-              </article>
-              <article className="card">
-                <p className="card-num" aria-hidden="true">03</p>
-                <h3>Recovery Verification</h3>
-                <p className="tier-scope">
-                  Backup, restore, and recovery validation where applicable —
-                  proven in isolation rather than assumed.
-                </p>
-                <p className="mini-label">You receive</p>
-                <ul className="checklist tier-list">
-                  <li>Recovery and rehearsal findings</li>
-                  <li>Restore evidence summary</li>
-                  <li>Handoff and runbook notes where relevant</li>
-                </ul>
-                <p className="boundary">
-                  Recovery methods reflect our internal reference practice —
-                  not client production recovery evidence.
-                </p>
               </article>
             </div>
             <p className="boundary tiers-note">

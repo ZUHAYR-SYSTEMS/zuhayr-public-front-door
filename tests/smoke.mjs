@@ -21,12 +21,12 @@ const bundle = jsFiles.length === 1 ? readFileSync(join(dist, 'assets', jsFiles[
 
 for (const s of [
   'that can prove', // hero headline
-  'Discuss a production problem', // primary CTA
+  'Explore ZUHAYR', // primary CTA
   'GOVERNED LIFECYCLE', // lifecycle visualization
   'BUILD', 'RECOVER', 'PROVE', // signature
   'not from a client engagement', // disclosure intact
   'INTERNAL VALIDATION', // evidence maturity badge
-  'Find your problem', // problem paths
+  'WHAT BRINGS YOU HERE', // problem navigator heading
   'The rescue sequence', // method
   'refuses to gamble', // trust bridge
   'No production credentials needed', // engagement
