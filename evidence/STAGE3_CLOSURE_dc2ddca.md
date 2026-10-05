@@ -97,6 +97,25 @@ Stage: 3 (public front door) — CLOSE ONLY. Stage 1/2, C0-4 remain closed. Stag
 - DEPLOYMENT_PATH: owner-action-required. DEPLOY result for dc2ddca: NOT_DEPLOYED (no safe
   authorized path). Exactly ONE minimal external action (see §10).
 
+## 8b. LIVE RECONCILIATION (2026-10-05, later same day — SUPERSEDES §8 tail and §10 items 1/3/4)
+
+- Owner-verified Cloudflare facts: Pages project `zuhayr-public-front-door` with Git
+  integration to ZUHAYR-SYSTEMS/zuhayr-public-front-door; automatic deployments ENABLED;
+  production deployment = main @ a516bc2, STATUS=SUCCESS. Production domains attached:
+  www.zuhayrsystems.com, zuhayrsystems.com, zuhayr-public-front-door.pages.dev.
+- Consistency with repository history: repo HEAD == origin/main == a516bc2 at reconciliation;
+  a516bc2 contains code release dc2ddca plus the Stage-3 evidence commit — the deployed
+  commit therefore carries the dc2ddca build. No inconsistency found; no website
+  functionality change required.
+- Machine-generated corroboration (curl, this environment — distinct from owner browser
+  observation): live HTML shell now references /assets/index-B_3s4NOK.js (234,003 bytes,
+  byte-identical size to local dist build of dc2ddca); the served bundle contains the
+  dc2ddca CL-18 sentence ("not from a client engagement, and no client data is involved").
+- Classification update: OWNER_PUBLISH_PENDING is SUPERSEDED. DEPLOYMENT_PATH =
+  cloudflare-pages-automatic-git (main @ a516bc2, SUCCESS). DEPLOY_PASS (dc2ddca build) =
+  PASS. Prior "exact origin unknown" limitation is retired — origin is the named Pages
+  project above.
+
 ## 9. Live verification (actual public domain, 2026-10-05)
 
 - HTTPS apex + www: 200, valid TLS. PASS.
@@ -110,22 +129,39 @@ Stage: 3 (public front door) — CLOSE ONLY. Stage 1/2, C0-4 remain closed. Stag
 - Classification: BUILD_PASS (dc2ddca) = PASS. DEPLOY_PASS (dc2ddca) = NOT_DEPLOYED.
   LIVE_VERIFY_PASS = PASS for the currently served 3afe03f-era release; dc2ddca hardening
   sentences pending owner publish (content-equivalent otherwise).
+  [SUPERSEDED by §8b — retained as historical record of the pre-reconciliation state.]
 
-## 10. Known limitations
+## 9b. LIVE RECONCILIATION — verification split (2026-10-05)
 
-1. dc2ddca adds two disclosure/boundary sentences over the live-served build; publishing needs
-   the single owner action below — no content divergence beyond those sentences.
+- Owner-observed browser evidence (provided as verified facts, not machine-reproduced here):
+  HTTPS PASS; LIVE_HOMEPAGE PASS at https://zuhayrsystems.com; LIVE_PROOF PASS (#proof
+  visibly states evidence comes from ZUHAYR's own internal production infrastructure, NOT
+  a client engagement, with no client data); LIVE_CONTACT PASS (#contact presents
+  Production Reliability Review + admin@zuhayrsystems.com and preserves the internal/lab
+  evidence disclosure).
+- Machine-generated evidence (this environment, curl): HTTPS 200 apex; live shell serves
+  index-B_3s4NOK.js; bundle contains the dc2ddca CL-18 sentence; live secret/topology
+  scan CLEAN (reconfirmed).
+- Combined classification: BUILD_PASS = PASS; DEPLOY_PASS = PASS (Pages SUCCESS @ a516bc2);
+  LIVE_VERIFY_PASS = PASS (owner-observed + machine-corroborated). No browser output is
+  fabricated in this file — browser observations are attributed to the owner above.
+
+## 10. Known limitations (reconciled — stale publish items retired by §8b)
+
+1. [RETIRED — superseded by §8b: dc2ddca is deployed to production via automatic Git
+   deployment @ a516bc2; no owner publish action remains.]
 2. No e2e suite exists (no playwright config, empty tests/); e2e recorded as NOT_RUNNABLE.
-3. Exact origin project behind Cloudflare could not be identified without owner credentials;
-   no change was made on that basis.
-4. ONE minimal external action: publish `zuhayr-public-front-door-dc2ddca-pages.zip`
-   (SHA256 25FD17FD...) to the existing Cloudflare-fronted origin for zuhayrsystems.com
-   using the owner's normal release path, then confirm HTTPS 200 serves index-B_3s4NOK.js.
+   (Genuine residual — no e2e coverage for the front door.)
+3. [RETIRED — superseded by §8b: origin identified as Cloudflare Pages project
+   `zuhayr-public-front-door` with attached production domains.]
+4. [RETIRED — superseded by §8b: the single owner publish action was completed via
+   automatic Git deployment; live shell confirms index-B_3s4NOK.js is served.]
 
 ## 11. Final Stage-3 verdict
 
-STAGE_3_VERDICT=PASS_WITH_OWNER_PUBLISH_PENDING — current HEAD reconciled, fresh build
-proven, public safety proven, Stage-2 integrity proven, live domain verified serving the
-current release, evidence authoritative, deployment truthfully classified. Stage 3 is
-CLOSED subject only to the single owner publish action above; no further Stage-3 work remains.
+STAGE_3_VERDICT=PASS (unconditional) — current HEAD reconciled, fresh build proven,
+public safety proven, Stage-2 integrity proven, automatic Git deployment established
+(Cloudflare Pages SUCCESS @ a516bc2), live domain owner-verified (homepage/proof/contact
+PASS over HTTPS) and machine-corroborated (live bundle = dc2ddca build). Stage 3 is
+CLOSED. No further Stage-3 work remains.
 NEXT_STAGE_STARTED=NO.
