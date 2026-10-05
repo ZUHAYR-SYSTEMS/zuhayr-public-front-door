@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SiteFooter, SiteHeader } from '../components/layout'
+import { ProblemPaths } from '../components/journey'
 import { LifecycleViz, Signature } from '../components/lifecycle'
 import { usePageMeta } from '../meta'
 import { REVIEW_MAILTO } from '../site'
@@ -48,91 +49,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="choose" className="section" aria-labelledby="choose-title">
+        <section id="problems" className="section" aria-labelledby="problems-title">
           <div className="container">
-            <p className="eyebrow">WHERE TO START</p>
-            <h2 id="choose-title">Two ways in. Pick yours.</h2>
-            <div className="cards choose">
-              <Link
-                className="card choose-card choose-rescue"
-                to="/saas-production-rescue"
-              >
-                <p className="card-num" aria-hidden="true">A</p>
-                <h3>Production is failing</h3>
-                <p>
-                  Unstable, degraded, or stalled systems that teams are afraid
-                  to touch — rescued with read-only-first diagnosis and
-                  minimal reversible change.
-                </p>
-                <span className="choose-go">
-                  Production System Rescue ›
-                </span>
-              </Link>
-              <Link
-                className="card choose-card choose-recovery"
-                to="/recovery-resilience"
-              >
-                <p className="card-num" aria-hidden="true">B</p>
-                <h3>Not sure you can recover</h3>
-                <p>
-                  Backups exist, but nobody has proven a restore would work —
-                  verified with isolated rehearsals, integrity checks, and
-                  evidence.
-                </p>
-                <span className="choose-go">Recovery &amp; Resilience ›</span>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="symptoms"
-          className="section"
-          aria-labelledby="symptoms-title"
-        >
-          <div className="container">
-            <p className="eyebrow">01 — IS THIS YOU?</p>
-            <h2 id="symptoms-title">
-              Taking an existing SaaS from fragile to operable.
-            </h2>
+            <p className="eyebrow">01 — WHAT'S GOING WRONG?</p>
+            <h2 id="problems-title">Find your problem. See the starting point.</h2>
             <p className="section-lede">
-              Call us when your system shows any of these signs. If two or
-              more sound familiar, start with a Production Reliability Review.
+              Seven familiar situations. Open yours to see a truthful first
+              step — a routing choice, not a diagnosis.
             </p>
-            <ul
-              className="checklist symptoms"
-              aria-label="Signs you should contact us"
-            >
-              <li>
-                Production looks healthy, but critical paths are not actually
-                ready.
-              </li>
-              <li>Workers or processes crash and restart on a loop.</li>
-              <li>
-                Migrations fail, or behave differently between environments.
-              </li>
-              <li>
-                The same incident keeps coming back because the root cause is
-                still unclear.
-              </li>
-              <li>
-                Recovery exists on paper but has never actually been proven.
-              </li>
-              <li>
-                Backups exist, but nobody is confident a restore would work.
-              </li>
-              <li>
-                Every deployment change feels risky, or is hard to roll back.
-              </li>
-            </ul>
-            <div className="actions">
-              <a className="btn" href="#contact">
-                Start a Production Reliability Review
-              </a>
-              <a className="btn-ghost" href="#engagements">
-                See how engagements work
-              </a>
-            </div>
+            <ProblemPaths />
           </div>
         </section>
 
@@ -262,61 +187,86 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="proof" className="section" aria-labelledby="proof-title">
-          <div className="container">
-            <p className="eyebrow">03 — PROOF</p>
-            <h2 id="proof-title">What a rescue looks like in practice</h2>
+        <section id="flagship" className="section" aria-labelledby="flagship-title">
+          <div className="container narrow">
+            <p className="eyebrow">03 — FLAGSHIP CAPABILITY</p>
+            <h2 id="flagship-title">
+              Production System Rescue &amp; Reliability
+            </h2>
             <p className="section-lede">
-              One controlled internal rescue, verified end to end — summarized
-              for buyers, with the evidence boundary stated plainly. This proof
-              comes from our own internal production infrastructure — not from
-              a client engagement, and no client data is involved.
+              Taking an existing SaaS from fragile to operable: we find the
+              smallest safe path back, then prove the recovery actually works.
             </p>
-            <div className="proof-steps">
-              <article>
-                <h3>Problem</h3>
+            <details className="disclose">
+              <summary>How the rescue works, briefly</summary>
+              <div className="disclose-body">
                 <p>
-                  A containerized production system appeared healthy — every
-                  container reported “running” — yet was completely inert: the
-                  schema had never been initialized, no tables existed, the
-                  worker was in a crash loop with 922 restarts, and the
-                  readiness probe correctly reported “not ready.”
+                  <strong>Situation:</strong> your system runs but cannot do
+                  its job — inert schema, crash-looping workers, misleading
+                  green dashboards.
                 </p>
-              </article>
-              <article>
-                <h3>Root cause</h3>
                 <p>
-                  Two missing database-connection keys in a single environment
-                  file. The migration runner fell back to an unreachable
-                  loopback default — schema, image, migration, and topology
-                  were all correct; the two keys were the entire incident.
+                  <strong>Philosophy:</strong> diagnose read-only first, fix
+                  the smallest confirmed cause, keep every step reversible,
+                  and verify with checks independent of the fix.
                 </p>
-              </article>
-              <article>
-                <h3>Intervention</h3>
                 <p>
-                  Configuration-only fix: the two keys were added, with the
-                  prior file preserved first for one-command rollback. No code,
-                  image, or migration script was touched; read-only
-                  reachability was proven before the real migration ran.
+                  <strong>Outcome:</strong> an operable system plus a written
+                  record — findings, verification evidence, and residual risks
+                  stated plainly.
                 </p>
-              </article>
-              <article>
-                <h3>Verified outcome</h3>
-                <p>
-                  Migration applied cleanly on the first attempt; worker
-                  restarts went from 922 to zero; least-privilege verified at
-                  the database level; and an independent read-only verifier
-                  passed. A hash-verified backup was restored into a fully
-                  isolated database — the first attempt failed visibly on
-                  missing cluster roles, the second matched the live structure
-                  exactly after canonical credential-free role bootstrap —
-                  then the isolated target was destroyed with production
-                  verified unchanged.
-                </p>
-              </article>
+              </div>
+            </details>
+            <div className="actions">
+              <Link className="btn-ghost" to="/saas-production-rescue">
+                Production rescue capability ›
+              </Link>
+              <Link className="btn-ghost" to="/proof/production-rescue">
+                Read the rescue proof ›
+              </Link>
             </div>
-            <ul className="facts" aria-label="Key verified facts">
+          </div>
+        </section>
+
+        <section id="method" className="section" aria-labelledby="method-title">
+          <div className="container">
+            <p className="eyebrow">04 — METHOD</p>
+            <h2 id="method-title">The rescue sequence</h2>
+            <ol className="chain chain-compact" aria-label="Rescue method">
+              <li>
+                <strong>Observe</strong>
+                <span>Read-only first. Establish the actual failure state.</span>
+              </li>
+              <li>
+                <strong>Isolate</strong>
+                <span>Find the authoritative failure — the smallest confirmed cause.</span>
+              </li>
+              <li>
+                <strong>Recover</strong>
+                <span>Use the minimum reversible intervention, rollback preserved.</span>
+              </li>
+              <li>
+                <strong>Prove</strong>
+                <span>Verify recovery independently and preserve the evidence.</span>
+              </li>
+            </ol>
+            <p className="boundary tiers-note">
+              Observe / Isolate / Recover / Prove is the rescue method used on
+              an engagement. BUILD / BREAK / RECOVER / PROVE remains the
+              broader ZUHAYR engineering signature.
+            </p>
+          </div>
+        </section>
+
+        <section id="evidence" className="section" aria-labelledby="evidence-title">
+          <div className="container">
+            <p className="eyebrow">05 — EVIDENCE</p>
+            <h2 id="evidence-title">Before, then verified</h2>
+            <p className="section-lede">
+              One internal rescue, measured before and after. Full detail
+              lives on the proof pages — these are the headline facts.
+            </p>
+            <ul className="facts facts-compact" aria-label="Rescue headline facts">
               <li>
                 <strong>922 to 0</strong>
                 <span>worker restarts</span>
@@ -326,69 +276,21 @@ export default function Home() {
                 <span>public tables</span>
               </li>
               <li>
-                <strong>2</strong>
-                <span>missing config keys</span>
+                <strong>Not ready to ready</strong>
+                <span>health probe</span>
               </li>
               <li>
-                <strong>0</strong>
-                <span>code changes</span>
+                <strong>Rehearsed</strong>
+                <span>isolated restore</span>
               </li>
             </ul>
-            <div
-              className="table-scroll"
-              role="region"
-              aria-label="Before and after recovery results"
-              tabIndex={0}
-            >
-              <table>
-                <caption>Before / after the rescue, same system</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Dimension</th>
-                    <th scope="col">Before</th>
-                    <th scope="col">After</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Schema</th>
-                    <td>Never initialized</td>
-                    <td>Revision pinned, applied clean first attempt</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Public tables</th>
-                    <td>0</td>
-                    <td>28, queue outbox present</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Worker</th>
-                    <td>Crash loop, 922 restarts</td>
-                    <td>Running, 0 restarts, clean error scan</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Health probe</th>
-                    <td>Not ready</td>
-                    <td>Ready for owned components</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Privileges</th>
-                    <td>Unverified</td>
-                    <td>Least-privilege roles, forced row-level security</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <ul className="trust-strip" aria-label="Why this proof is credible">
-              <li>Diagnosed read-only before any change</li>
-              <li>Failed attempts preserved in the record</li>
-              <li>Independent read-only verifier passed</li>
-              <li>Complete hashed evidence chain handed over</li>
-            </ul>
-            <p className="boundary trust-note">
-              Why this is credible: every step above was measured on the live
-              system, every failure kept and classified, and the full evidence
-              chain is checksummed for independent review. This remains our
-              own internal production reference — not a client engagement.
+            <p className="maturity">
+              <span className="maturity-badge">INTERNAL VALIDATION</span>
+              <span>
+                This proof comes from our own internal production
+                infrastructure — not a client engagement, and no client data
+                is involved.
+              </span>
             </p>
             <div className="actions">
               <Link className="btn-ghost" to="/proof/production-rescue">
@@ -401,13 +303,28 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="trust" className="section" aria-labelledby="trust-title">
+          <div className="container">
+            <p className="eyebrow">06 — WHY IT'S SAFER</p>
+            <h2 id="trust-title">A method that refuses to gamble</h2>
+            <ul className="trust-strip trust-grid" aria-label="Why the method is safer">
+              <li>Read-only first — understand before changing</li>
+              <li>Minimum intervention — change the smallest authoritative thing</li>
+              <li>Reversible — know the path back</li>
+              <li>Fail closed — ambiguity never becomes success</li>
+              <li>Evidence preserved — recovery can be independently reviewed</li>
+              <li>Claims bounded — internal proof remains internal proof</li>
+            </ul>
+          </div>
+        </section>
+
         <section
           id="engagements"
           className="section"
           aria-labelledby="engagements-title"
         >
           <div className="container">
-            <p className="eyebrow">04 — ENGAGEMENTS</p>
+            <p className="eyebrow">07 — ENGAGEMENTS</p>
             <h2 id="engagements-title">What we can start with</h2>
             <p className="section-lede">
               Every engagement starts with the Review. Deeper work happens
@@ -481,7 +398,7 @@ export default function Home() {
           aria-labelledby="how-title"
         >
           <div className="container">
-            <p className="eyebrow">05 — HOW WE WORK</p>
+            <p className="eyebrow">08 — HOW WE WORK</p>
             <h2 id="how-title">Safer production change, from start to finish</h2>
             <p className="section-lede">
               The same disciplined sequence on every engagement.
@@ -522,7 +439,7 @@ export default function Home() {
 
         <section id="contact" className="section" aria-labelledby="contact-title">
           <div className="container">
-            <p className="eyebrow">06 — ENGAGEMENT</p>
+            <p className="eyebrow">09 — ENGAGEMENT</p>
             <h2 id="contact-title">
               Bring us the system that needs to keep working.
             </h2>
@@ -536,6 +453,7 @@ export default function Home() {
                 <ul className="checklist">
                   <li>We start read-only and identify the actual failure.</li>
                   <li>No speculative change before diagnosis.</li>
+                  <li>No production credentials needed to start talking.</li>
                   <li>
                     Deeper access only by agreement, if the findings justify
                     it.

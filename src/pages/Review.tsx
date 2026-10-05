@@ -29,7 +29,7 @@ export default function Review() {
               <a className="btn" href={REVIEW_MAILTO}>
                 Start a Production Reliability Review
               </a>
-              <Link className="btn-ghost" to="/#symptoms">
+              <Link className="btn-ghost" to="/#problems">
                 Check the signs first
               </Link>
             </div>

@@ -898,6 +898,172 @@ tbody td {
   max-width: 44rem;
 }
 
+/* ---------- G4.2 buyer journey ---------- */
+
+.problem-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.problem-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.problem-item:has(.problem-btn.is-open) {
+  border-color: var(--line-strong);
+}
+
+.problem-btn {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  width: 100%;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  padding: 18px 22px;
+  cursor: pointer;
+  min-height: 56px;
+}
+
+.problem-btn:hover .problem-title {
+  color: var(--ink);
+}
+
+.problem-num {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  flex: none;
+}
+
+.problem-title {
+  font-size: 1.02rem;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.problem-btn.is-open .problem-title {
+  color: var(--ink);
+}
+
+.problem-btn::after {
+  content: '+';
+  margin-left: auto;
+  flex: none;
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  color: var(--dim);
+  align-self: center;
+}
+
+.problem-btn.is-open::after {
+  content: '–';
+  color: var(--accent);
+}
+
+.problem-panel {
+  padding: 0 22px 22px 54px;
+}
+
+.problem-panel p {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.problem-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.problem-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* progressive disclosure */
+
+.disclose {
+  margin-top: 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.disclose summary {
+  padding: 18px 22px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.98rem;
+  border-radius: var(--radius);
+}
+
+.disclose-body {
+  padding: 0 22px 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.disclose-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 62ch;
+}
+
+.disclose-body strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* evidence maturity */
+
+.facts-compact {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.maturity {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 24px 0 0;
+  max-width: 44rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.maturity-badge {
+  flex: none;
+  margin-top: 2px;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  border-radius: 4px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
 /* ---------- G4.1 hero ---------- */
 
 .hero-grid {
@@ -1272,10 +1438,18 @@ tbody td {
   .chain li {
     padding: 20px 20px 20px 64px;
   }
-
   .chain li::before {
     left: 20px;
     top: 20px;
+  }
+
+  .problem-panel {
+    padding-left: 22px;
+  }
+
+  .maturity {
+    flex-direction: column;
+    gap: 10px;
   }
 
   .page-hero {

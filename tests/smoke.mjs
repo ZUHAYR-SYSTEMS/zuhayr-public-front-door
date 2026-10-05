@@ -25,6 +25,11 @@ for (const s of [
   'GOVERNED LIFECYCLE', // lifecycle visualization
   'BUILD', 'RECOVER', 'PROVE', // signature
   'not from a client engagement', // disclosure intact
+  'INTERNAL VALIDATION', // evidence maturity badge
+  'Find your problem', // problem paths
+  'The rescue sequence', // method
+  'refuses to gamble', // trust bridge
+  'No production credentials needed', // engagement
   'admin@zuhayrsystems.com', // contact intact
   '/recovery-resilience', // routes intact
 ]) {
