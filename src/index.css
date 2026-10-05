@@ -569,6 +569,75 @@ tbody td {
   font-weight: 600;
 }
 
+/* ---------- symptoms ---------- */
+
+.checklist.symptoms {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 28px;
+  margin-top: 32px;
+}
+
+.checklist.symptoms li::before {
+  content: "→";
+}
+
+/* ---------- trust strip ---------- */
+
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trust-strip li {
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.trust-note {
+  max-width: 44rem;
+}
+
+/* ---------- engagement tiers ---------- */
+
+.cards.tiers {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tier-scope {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.mini-label {
+  margin: 20px 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.checklist.tier-list {
+  margin-top: 10px;
+}
+
+.checklist.tier-list li {
+  font-size: 0.9rem;
+}
+
+.tiers-note {
+  max-width: 44rem;
+}
+
 .engage .boundary {
   border-top-color: var(--line-strong);
 }
@@ -664,6 +733,10 @@ tbody td {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .cards.tiers {
+    grid-template-columns: 1fr;
+  }
+
   .facts {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -727,6 +800,10 @@ tbody td {
 
   .cards,
   .proof-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .checklist.symptoms {
     grid-template-columns: 1fr;
   }
 }
