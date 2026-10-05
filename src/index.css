@@ -726,6 +726,173 @@ tbody td {
   font-size: 0.9rem;
 }
 
+.footer-list a {
+  text-decoration: none;
+}
+
+.footer-list a:hover {
+  color: var(--ink);
+}
+
+/* ---------- sub-pages ---------- */
+
+.page-hero {
+  padding: 88px 0 72px;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-hero h1 {
+  max-width: 18ch;
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+
+.container.narrow {
+  max-width: 880px;
+}
+
+/* pathway chooser */
+
+.cards.choose {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.choose-card {
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.15s ease;
+}
+
+.choose-card:hover {
+  border-color: var(--line-strong);
+}
+
+.choose-card p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.choose-go {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.choose-rescue {
+  border-top: 2px solid var(--accent);
+}
+
+.choose-recovery {
+  border-top: 2px solid var(--line-strong);
+}
+
+.card-link {
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+
+.card-link a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.card-link a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* method / evidence chain */
+
+.chain {
+  display: grid;
+  gap: 12px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: chain;
+}
+
+.chain li {
+  counter-increment: chain;
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  padding: 22px 24px 22px 72px;
+}
+
+.chain li::before {
+  content: counter(chain, decimal-leading-zero);
+  position: absolute;
+  left: 24px;
+  top: 22px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.chain strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.chain span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  max-width: 60ch;
+}
+
+/* CTA band */
+
+.cta-band-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.cta-band h2 {
+  max-width: 22ch;
+}
+
+.cta-band-inner > div > p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  max-width: 44rem;
+}
+
+.cta-band-action {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-left: 1px solid var(--line-strong);
+  padding-left: clamp(20px, 3vw, 40px);
+}
+
+.disclosure {
+  max-width: 44rem;
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 900px) {
@@ -735,6 +902,17 @@ tbody td {
 
   .cards.tiers {
     grid-template-columns: 1fr;
+  }
+
+  .cta-band-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-band-action {
+    border-left: 0;
+    border-top: 1px solid var(--line-strong);
+    padding-left: 0;
+    padding-top: 24px;
   }
 
   .facts {
@@ -803,8 +981,25 @@ tbody td {
     grid-template-columns: 1fr;
   }
 
+  .cards.choose {
+    grid-template-columns: 1fr;
+  }
+
   .checklist.symptoms {
     grid-template-columns: 1fr;
+  }
+
+  .chain li {
+    padding: 20px 20px 20px 64px;
+  }
+
+  .chain li::before {
+    left: 20px;
+    top: 20px;
+  }
+
+  .page-hero {
+    padding: 64px 0 56px;
   }
 }
 
