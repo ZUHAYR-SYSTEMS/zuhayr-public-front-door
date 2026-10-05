@@ -52,6 +52,13 @@ Date (UTC): 2026-10-05. Baseline: Stage 3 CLOSED @ 16f1d42 (live, Pages auto-dep
 
 ## Deployment / live verification (post-push)
 
-- Pushed to main; Pages automatic deployment authoritative (no duplicate project, no DNS change).
-- Verified live shell serves the new asset hash; per-route HTTPS checks; bundle secret scan.
-- (Fill live asset hash + route results after deploy propagation.)
+- Pushed to main as a14cb38; Pages automatic deployment authoritative (no duplicate project, no DNS change).
+- Live shell serves new build assets (index-BN87VhV-.js 310,915 B = local dist; index-Du_miOXV.css).
+- Live HTTPS route checks (direct navigation, curl): / → 200,
+  /production-reliability-review → 200, /saas-production-rescue → 200,
+  /recovery-resilience → 200, /backup-restore-recovery → 200,
+  /proof/production-rescue → 200, /proof/recovery-resilience → 200,
+  /robots.txt → 200, /sitemap.xml → 200 (7 loc entries).
+- Live bundle content: new routes, CL-18 disclosure, Recovery Readiness CTA,
+  engagements copy, contact email all present. Live bundle secret/topology scan CLEAN.
+- AUTO_DEPLOYMENT=PASS. LIVE_ROUTE_VERIFICATION=PASS (machine; owner browser pass optional).
