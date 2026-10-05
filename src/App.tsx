@@ -226,6 +226,10 @@ export default function App() {
                     </dd>
                   </div>
                 </dl>
+                <p className="boundary">
+                  Method description for integration engagements — not claimed
+                  as a C0-4 production-rescue outcome.
+                </p>
               </article>
               <article className="card">
                 <p className="card-num" aria-hidden="true">04</p>
@@ -261,7 +265,9 @@ export default function App() {
             <h2 id="proof-title">What a rescue looks like in practice</h2>
             <p className="section-lede">
               One controlled internal rescue, verified end to end — summarized
-              for buyers, with the evidence boundary stated plainly.
+              for buyers, with the evidence boundary stated plainly. This proof
+              comes from our own internal production infrastructure — not from
+              a client engagement, and no client data is involved.
             </p>
             <div className="proof-steps">
               <article>
