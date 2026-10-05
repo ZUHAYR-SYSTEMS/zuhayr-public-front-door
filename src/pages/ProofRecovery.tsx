@@ -1,7 +1,33 @@
 import { Link } from 'react-router-dom'
 import { CtaBand, Disclosure, SiteFooter, SiteHeader } from '../components/layout'
+import { EvidenceObject } from '../components/evidence'
+import { RECOVERY_RESILIENCE_EVIDENCE } from '../evidence'
 import { usePageMeta } from '../meta'
 import { RECOVERY_MAILTO } from '../site'
+
+function Step({
+  num,
+  id,
+  title,
+  children,
+}: {
+  num: string
+  id: string
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <section className="narrative-step" aria-labelledby={id}>
+      <p className="narrative-num" aria-hidden="true">
+        {num}
+      </p>
+      <div>
+        <h3 id={id}>{title}</h3>
+        {children}
+      </div>
+    </section>
+  )
+}
 
 export default function ProofRecovery() {
   usePageMeta({
@@ -28,85 +54,125 @@ export default function ProofRecovery() {
           </div>
         </section>
 
-        <section className="section" aria-labelledby="prr-chain">
-          <div className="container">
-            <p className="eyebrow">WHAT WAS PROVEN</p>
-            <h2 id="prr-chain">The recovery record</h2>
-            <ol className="chain chain-flow" aria-label="Proven recovery steps">
-              <li>
-                <strong>Backup with integrity</strong>
-                <span>
-                  Fresh backups created; each hash-verified, integrity-checked,
-                  and scanned for leaked secrets before counting as evidence.
-                </span>
-              </li>
-              <li>
-                <strong>Isolated restore, rehearsed twice</strong>
-                <span>
-                  Restored into a brand-new isolated target with no network
-                  access. The first attempt failed visibly on missing cluster
-                  roles and stays in the record.
-                </span>
-              </li>
-              <li>
-                <strong>Exact structural match</strong>
-                <span>
-                  The second attempt, after credential-free role bootstrap,
-                  matched the live structure exactly — then the isolated
-                  target was destroyed and production verified unchanged.
-                </span>
-              </li>
-              <li>
-                <strong>Off-node durability</strong>
-                <span>
-                  A sanitized recovery runbook placed in independent private
-                  storage, with verified upload, independent read-back, and an
-                  exact hash match.
-                </span>
-              </li>
-              <li>
-                <strong>Fail-closed behavior</strong>
-                <span>
-                  With no destination configured, the exporter provably sent
-                  nothing and kept the local snapshot instead of failing
-                  silently.
-                </span>
-              </li>
-              <li>
-                <strong>Observed operations</strong>
-                <span>
-                  Scheduled monitoring deployed and observed succeeding,
-                  including a monitoring defect the system caught in itself on
-                  day one — fixed with stronger checks, not weaker ones.
-                </span>
-              </li>
-            </ol>
-            <Disclosure />
+        <div className="container">
+          <div className="narrative">
+            <Step num="01" id="prr-situation" title="The situation">
+              <p>
+                A rescued system is only half the story until its recovery is
+                proven too. Backups existed — but nobody had shown that a
+                restore would actually work, or that recovery material could
+                survive outside the failing system.
+              </p>
+            </Step>
+            <Step num="02" id="prr-integrity" title="Backup with integrity">
+              <p>
+                Fresh backups were created, and each was hash-verified,
+                integrity-checked, and scanned for leaked secrets before it
+                counted as evidence.
+              </p>
+            </Step>
+            <Step num="03" id="prr-rehearsal" title="Recovery rehearsal">
+              <p>
+                A backup was restored into a brand-new isolated target with
+                no network access — then the isolated target was destroyed
+                and production verified unchanged.
+              </p>
+              <details className="disclose">
+                <summary>How the rehearsal ran</summary>
+                <div className="disclose-body">
+                  <p>
+                    The first attempt failed visibly on missing cluster roles
+                    and stays in the record. The second attempt, after
+                    credential-free role bootstrap, matched the live structure
+                    exactly.
+                  </p>
+                </div>
+              </details>
+            </Step>
+            <Step num="04" id="prr-offnode" title="Off-node durability">
+              <p>
+                A sanitized recovery runbook was placed in independent private
+                storage, with a verified upload, an independent read-back,
+                and an exact hash match.
+              </p>
+            </Step>
+            <Step num="05" id="prr-failclosed" title="Fail-closed behavior">
+              <p>
+                With no destination configured, the exporter provably sent
+                nothing and kept the local snapshot instead of failing
+                silently. Monitoring deployed on the system caught its own
+                defect on day one — and was fixed with stronger checks, not
+                weaker ones.
+              </p>
+            </Step>
+            <Step num="06" id="prr-learning" title="Failure learning">
+              <p>
+                The failed first restore attempt, the exporter that had
+                nowhere to send, and the monitoring check that cried wolf are
+                all preserved in the record. Each visible failure is what
+                makes the passing runs believable.
+              </p>
+            </Step>
+            <Step num="07" id="prr-outcome" title="Verified outcome">
+              <ol
+                className="chain chain-compact"
+                aria-label="Proven recovery steps"
+              >
+                <li>
+                  <strong>Backup with integrity</strong>
+                  <span>Hash-verified, integrity-checked, secret-scanned.</span>
+                </li>
+                <li>
+                  <strong>Isolated restore, rehearsed twice</strong>
+                  <span>First attempt failed visibly and stays recorded.</span>
+                </li>
+                <li>
+                  <strong>Exact structural match</strong>
+                  <span>Second attempt matched; target destroyed after.</span>
+                </li>
+                <li>
+                  <strong>Off-node durability</strong>
+                  <span>Upload, independent read-back, exact hash match.</span>
+                </li>
+                <li>
+                  <strong>Fail-closed behavior</strong>
+                  <span>Sent nothing; kept the snapshot.</span>
+                </li>
+                <li>
+                  <strong>Observed operations</strong>
+                  <span>Monitoring deployed, observed, self-corrected.</span>
+                </li>
+              </ol>
+            </Step>
+            <Step num="08" id="prr-limits" title="Limitations">
+              <p>
+                This is not disaster recovery with guaranteed times, not
+                replication, not multi-region failover, and not a client
+                outcome. Overall readiness honestly reported “not ready” for
+                intentionally absent future components throughout.
+              </p>
+            </Step>
+            <Step num="09" id="prr-provenance" title="Provenance / maturity">
+              <EvidenceObject evidence={RECOVERY_RESILIENCE_EVIDENCE} />
+            </Step>
+            <Step num="10" id="prr-next" title="Next action">
+              <p>
+                Measure your recovery against this standard: a Recovery
+                Readiness Review checks your backup path, rehearses where it
+                counts, and reports gaps honestly.
+              </p>
+              <div className="actions">
+                <Link className="btn-ghost" to="/recovery-resilience">
+                  Recovery &amp; resilience capability ›
+                </Link>
+                <Link className="btn-ghost" to="/backup-restore-recovery">
+                  Check your own backups ›
+                </Link>
+              </div>
+              <Disclosure />
+            </Step>
           </div>
-        </section>
-
-        <section className="section" aria-labelledby="prr-limits">
-          <div className="container narrow">
-            <p className="eyebrow">BOUNDARIES OF THIS PROOF</p>
-            <h2 id="prr-limits">What this proof is not</h2>
-            <p className="section-lede">
-              This is not disaster recovery with guaranteed times, not
-              replication, not multi-region failover, and not a client
-              outcome. Overall readiness honestly reported “not ready” for
-              intentionally absent future components throughout. The proof
-              shows a disciplined recovery practice — the same practice your
-              assessment would be measured against.
-            </p>
-            <div className="actions">
-              <Link className="btn-ghost" to="/recovery-resilience">
-                Recovery &amp; resilience capability ›
-              </Link>
-              <Link className="btn-ghost" to="/backup-restore-recovery">
-                Check your own backups ›
-              </Link>
-            </div>
-          </div>
-        </section>
+        </div>
 
         <CtaBand
           title="Measure your recovery against this standard."

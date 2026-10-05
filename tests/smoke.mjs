@@ -30,6 +30,10 @@ for (const s of [
   'The rescue sequence', // method
   'refuses to gamble', // trust bridge
   'No production credentials needed', // engagement
+  'MATURITY', // evidence object
+  'Controlled recovery witness', // evidence source/type
+  'Target destroyed; production unchanged', // rehearsal fact
+  'not disaster recovery with guaranteed times', // limitation visible
   'admin@zuhayrsystems.com', // contact intact
   '/recovery-resilience', // routes intact
 ]) {
@@ -73,4 +77,4 @@ if (failures > 0) {
   console.error(`\n${failures} smoke check(s) failed`)
   process.exit(1)
 }
-console.log('\nAll G4.1 smoke checks passed')
+console.log('\nAll smoke checks passed')

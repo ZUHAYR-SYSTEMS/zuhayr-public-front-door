@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { SiteFooter, SiteHeader } from '../components/layout'
+import { EvidenceObject } from '../components/evidence'
 import { ProblemPaths } from '../components/journey'
+import { PUBLIC_EVIDENCE } from '../evidence'
 import { LifecycleViz, Signature } from '../components/lifecycle'
 import { usePageMeta } from '../meta'
 import { REVIEW_MAILTO } from '../site'
@@ -266,32 +268,11 @@ export default function Home() {
               One internal rescue, measured before and after. Full detail
               lives on the proof pages — these are the headline facts.
             </p>
-            <ul className="facts facts-compact" aria-label="Rescue headline facts">
-              <li>
-                <strong>922 to 0</strong>
-                <span>worker restarts</span>
-              </li>
-              <li>
-                <strong>0 to 28</strong>
-                <span>public tables</span>
-              </li>
-              <li>
-                <strong>Not ready to ready</strong>
-                <span>health probe</span>
-              </li>
-              <li>
-                <strong>Rehearsed</strong>
-                <span>isolated restore</span>
-              </li>
-            </ul>
-            <p className="maturity">
-              <span className="maturity-badge">INTERNAL VALIDATION</span>
-              <span>
-                This proof comes from our own internal production
-                infrastructure — not a client engagement, and no client data
-                is involved.
-              </span>
-            </p>
+            <div className="evidence-grid">
+              {PUBLIC_EVIDENCE.map((item) => (
+                <EvidenceObject key={item.id} evidence={item} />
+              ))}
+            </div>
             <div className="actions">
               <Link className="btn-ghost" to="/proof/production-rescue">
                 Read the full rescue proof ›
