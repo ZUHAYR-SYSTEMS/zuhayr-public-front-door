@@ -105,7 +105,7 @@ export default function Review() {
             </p>
             <div className="actions">
               <Link className="btn-ghost" to="/proof/production-rescue">
-                Read the rescue proof →
+                Read the rescue proof ›
               </Link>
             </div>
             <Disclosure />

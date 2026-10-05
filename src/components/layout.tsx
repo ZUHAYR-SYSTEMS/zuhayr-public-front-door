@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom'
 import { CONTACT_EMAIL, INTERNAL_DISCLOSURE, REVIEW_MAILTO } from '../site'
 
 const NAV = [
-  { to: '/#symptoms', label: 'Is this you?' },
   { to: '/#capabilities', label: 'Capabilities' },
-  { to: '/proof/production-rescue', label: 'Proof' },
   { to: '/recovery-resilience', label: 'Recovery' },
-  { to: '/production-reliability-review', label: 'Review' },
+  { to: '/proof/production-rescue', label: 'Evidence' },
+  { to: '/#how-we-work', label: 'How We Work' },
 ]
 
 export function SiteHeader() {

@@ -99,10 +99,10 @@ export default function ProofRecovery() {
             </p>
             <div className="actions">
               <Link className="btn-ghost" to="/recovery-resilience">
-                Recovery &amp; resilience capability →
+                Recovery &amp; resilience capability ›
               </Link>
               <Link className="btn-ghost" to="/backup-restore-recovery">
-                Check your own backups →
+                Check your own backups ›
               </Link>
             </div>
           </div>

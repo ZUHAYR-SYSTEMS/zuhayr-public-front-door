@@ -77,7 +77,7 @@ export default function BackupRestore() {
             </p>
             <div className="actions">
               <Link className="btn-ghost" to="/proof/recovery-resilience">
-                Read the recovery proof →
+                Read the recovery proof ›
               </Link>
             </div>
             <Disclosure />

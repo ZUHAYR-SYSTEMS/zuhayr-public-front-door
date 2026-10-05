@@ -54,7 +54,7 @@ export default function Rescue() {
         <section className="section" aria-labelledby="rescue-method">
           <div className="container">
             <p className="eyebrow">METHOD</p>
-            <h2 id="rescue-method">Diagnose → change minimally → verify</h2>
+            <h2 id="rescue-method">Diagnose, change minimally, verify</h2>
             <ol className="chain" aria-label="Rescue method chain">
               <li>
                 <strong>Diagnose read-only</strong>
@@ -82,11 +82,11 @@ export default function Rescue() {
             <h2 id="rescue-proof">Proven once, end to end</h2>
             <ul className="facts" aria-label="Key verified facts">
               <li>
-                <strong>922 → 0</strong>
+                <strong>922 to 0</strong>
                 <span>worker restarts</span>
               </li>
               <li>
-                <strong>0 → 28</strong>
+                <strong>0 to 28</strong>
                 <span>public tables</span>
               </li>
               <li>
@@ -100,7 +100,7 @@ export default function Rescue() {
             </ul>
             <div className="actions">
               <Link className="btn-ghost" to="/proof/production-rescue">
-                Read the full rescue proof →
+                Read the full rescue proof ›
               </Link>
             </div>
             <Disclosure />

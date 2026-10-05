@@ -7,7 +7,7 @@ export default function ProofRescue() {
   usePageMeta({
     title: 'Proof: Production System Rescue | ZUHAYR SYSTEMS',
     description:
-      'How ZUHAYR rescued a containerized production system from inert to operational: 922→0 restarts, 0→28 tables, config-only fix, independent verification — internal reference, no client data.',
+      'How ZUHAYR rescued a containerized production system from inert to operational: 922 to 0 restarts, 0 to 28 tables, config-only fix, independent verification — internal reference, no client data.',
     path: '/proof/production-rescue',
   })
 
@@ -77,11 +77,11 @@ export default function ProofRescue() {
             </div>
             <ul className="facts" aria-label="Key verified facts">
               <li>
-                <strong>922 → 0</strong>
+                <strong>922 to 0</strong>
                 <span>worker restarts</span>
               </li>
               <li>
-                <strong>0 → 28</strong>
+                <strong>0 to 28</strong>
                 <span>public tables</span>
               </li>
               <li>
@@ -158,10 +158,10 @@ export default function ProofRescue() {
             </p>
             <div className="actions">
               <Link className="btn-ghost" to="/proof/recovery-resilience">
-                Read the recovery proof →
+                Read the recovery proof ›
               </Link>
               <Link className="btn-ghost" to="/saas-production-rescue">
-                Production rescue capability →
+                Production rescue capability ›
               </Link>
             </div>
           </div>

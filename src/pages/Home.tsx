@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SiteFooter, SiteHeader } from '../components/layout'
+import { LifecycleViz, Signature } from '../components/lifecycle'
 import { usePageMeta } from '../meta'
 import { REVIEW_MAILTO } from '../site'
 
@@ -16,38 +17,34 @@ export default function Home() {
       <SiteHeader />
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
-          <div className="container">
-            <p className="eyebrow">ZUHAYR SYSTEMS / PRODUCTION ENGINEERING</p>
-            <h1 id="hero-title">
-              Production systems
-              <br />
-              that can prove they work.
-            </h1>
-            <p className="lede">
-              We help teams rescue fragile production systems, recover safely
-              from failure, and keep critical business state correct — with
-              evidence left behind.
-            </p>
-            <div className="actions">
-              <a className="btn" href="#contact">
-                Start a Production Reliability Review
-              </a>
-              <a className="btn-ghost" href="#choose">
-                Choose your path
-              </a>
+          <div className="container hero-grid">
+            <div>
+              <p className="eyebrow">ZUHAYR SYSTEMS / PRODUCTION ENGINEERING</p>
+              <h1 id="hero-title">
+                Production systems
+                <br />
+                that can prove
+                <br />
+                they work.
+              </h1>
+              <p className="hero-sub">
+                When production becomes fragile, ZUHAYR finds the smallest
+                safe path back to an operable system — then proves the
+                recovery actually works.
+              </p>
+              <div className="actions">
+                <Link className="btn" to="/production-reliability-review">
+                  Discuss a production problem
+                </Link>
+                <a className="btn-ghost" href="#how-we-work">
+                  Explore how we work
+                </a>
+              </div>
             </div>
-            <p
-              className="system-line"
-              aria-label="ZUHAYR engineering lifecycle: build, break, recover, prove"
-            >
-              <span>BUILD</span>
-              <b aria-hidden="true">→</b>
-              <span>BREAK</span>
-              <b aria-hidden="true">→</b>
-              <span>RECOVER</span>
-              <b aria-hidden="true">→</b>
-              <span>PROVE</span>
-            </p>
+            <LifecycleViz />
+          </div>
+          <div className="container hero-signature">
+            <Signature />
           </div>
         </section>
 
@@ -68,7 +65,7 @@ export default function Home() {
                   minimal reversible change.
                 </p>
                 <span className="choose-go">
-                  Production System Rescue →
+                  Production System Rescue ›
                 </span>
               </Link>
               <Link
@@ -82,7 +79,7 @@ export default function Home() {
                   verified with isolated rehearsals, integrity checks, and
                   evidence.
                 </p>
-                <span className="choose-go">Recovery &amp; Resilience →</span>
+                <span className="choose-go">Recovery &amp; Resilience ›</span>
               </Link>
             </div>
           </div>
@@ -175,7 +172,7 @@ export default function Home() {
                 </dl>
                 <p className="card-link">
                   <Link to="/saas-production-rescue">
-                    Production rescue capability →
+                    Production rescue capability ›
                   </Link>
                 </p>
               </article>
@@ -205,7 +202,7 @@ export default function Home() {
                 </dl>
                 <p className="card-link">
                   <Link to="/recovery-resilience">
-                    Recovery &amp; resilience capability →
+                    Recovery &amp; resilience capability ›
                   </Link>
                 </p>
               </article>
@@ -321,11 +318,11 @@ export default function Home() {
             </div>
             <ul className="facts" aria-label="Key verified facts">
               <li>
-                <strong>922 → 0</strong>
+                <strong>922 to 0</strong>
                 <span>worker restarts</span>
               </li>
               <li>
-                <strong>0 → 28</strong>
+                <strong>0 to 28</strong>
                 <span>public tables</span>
               </li>
               <li>
@@ -395,10 +392,10 @@ export default function Home() {
             </p>
             <div className="actions">
               <Link className="btn-ghost" to="/proof/production-rescue">
-                Read the full rescue proof →
+                Read the full rescue proof ›
               </Link>
               <Link className="btn-ghost" to="/proof/recovery-resilience">
-                Read the recovery proof →
+                Read the recovery proof ›
               </Link>
             </div>
           </div>
@@ -433,7 +430,7 @@ export default function Home() {
                 </ul>
                 <p className="card-link">
                   <Link to="/production-reliability-review">
-                    About the Review →
+                    About the Review ›
                   </Link>
                 </p>
               </article>

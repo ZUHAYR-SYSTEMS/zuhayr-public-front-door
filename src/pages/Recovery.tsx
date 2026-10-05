@@ -100,10 +100,10 @@ export default function Recovery() {
             </p>
             <div className="actions">
               <Link className="btn-ghost" to="/proof/recovery-resilience">
-                Read the recovery proof →
+                Read the recovery proof ›
               </Link>
               <Link className="btn-ghost" to="/backup-restore-recovery">
-                Unsure about your backups? →
+                Unsure about your backups? ›
               </Link>
             </div>
             <Disclosure />
