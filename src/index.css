@@ -323,7 +323,7 @@ a {
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   font-size: 0.78rem;
   letter-spacing: 0.12em;
-  color: var(--dim);
+  color: #78808a;
 }
 
 .card h3 {
@@ -729,7 +729,7 @@ tbody td {
 }
 
 .footer-note.small {
-  color: var(--dim);
+  color: #78808a;
   font-size: 0.8rem;
 }
 
