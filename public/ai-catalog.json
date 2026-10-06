@@ -1,0 +1,16 @@
+{
+  "name": "ZUHAYR SYSTEMS",
+  "version": "1.0",
+  "description": "Production Reliability & Recovery Engineering",
+  "routes": {
+    "/": "Homepage",
+    "/production-reliability-review": "Production Reliability Review",
+    "/saas-production-rescue": "SaaS Production Rescue",
+    "/recovery-resilience": "Recovery & Resilience",
+    "/backup-restore-recovery": "Backup & Restore Recovery",
+    "/proof/production-rescue": "Production Rescue Proof",
+    "/proof/recovery-resilience": "Recovery Resilience Proof"
+  },
+  "contact": "admin@zuhayrsystems.com",
+  "generated": "2026-10-05"
+}

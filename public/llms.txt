@@ -1,0 +1,14 @@
+# ZUHAYR SYSTEMS
+
+Production Reliability & Recovery Engineering
+
+Public routes:
+- / — Homepage: ZUHAYR SYSTEMS / PRODUCTION ENGINEERING
+- /production-reliability-review: Bounded read-only-first diagnosis for fragile production systems
+- /saas-production-rescue: SaaS production rescue with minimal reversible fixes
+- /recovery-resilience: Backup verification and recovery rehearsal
+- /backup-restore-recovery: Backup assessment and restore rehearsal
+- /proof/production-rescue: Internal proof of production rescue (922 to 0 restarts, config-only fix)
+- /proof/recovery-resilience: Internal proof of recovery rehearsal (hash-verified backups, isolated restore)
+
+For engagement inquiries: admin@zuhayrsystems.com
