@@ -57,6 +57,28 @@ export function EvidenceObject({ evidence }: { evidence: PublicEvidence }) {
         )}
       </dl>
       <p className="boundary evidence-disclosure">{evidence.disclosure}</p>
+      <dl className="evidence-lens">
+        <dt>WHAT THIS PROVES</dt>
+        <dd>
+          {evidence.verifiedOutcomes.map((outcome, i) => (
+            <div key={i}>
+              <span>{outcome.label}</span>{' '}
+              <span>{outcome.state}</span>
+            </div>
+          ))}
+        </dd>
+        <dt>WHAT THIS DOES NOT PROVE</dt>
+        <dd>
+          {evidence.limitations.map((limitation, i) => (
+            <div key={i}>
+              <span>{limitation}</span>
+            </div>
+          ))}
+          {evidence.limitations.length === 0 && (
+            <p>No limitations declared — but caution: absence of evidence is not evidence of absence.</p>
+          )}
+        </dd>
+      </dl>
       <p className="card-link">
         <Link to={evidence.route}>{evidence.routeLabel} ›</Link>
       </p>
