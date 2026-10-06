@@ -263,7 +263,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="trust" className="section" aria-labelledby="trust-title">
+<section id="trust" className="section" aria-labelledby="trust-title">
           <div className="container">
             <p className="eyebrow">06 — WHY IT'S SAFER</p>
             <h2 id="trust-title">A method that refuses to gamble</h2>
@@ -274,6 +274,7 @@ export default function Home() {
               <li>Fail closed — ambiguity never becomes success</li>
               <li>Evidence preserved — recovery can be independently reviewed</li>
               <li>Claims bounded — internal proof remains internal proof</li>
+              <li>Improvement — learning and hardening continue after recovery.</li>
             </ul>
           </div>
         </section>
