@@ -440,12 +440,24 @@ a {
   background: var(--panel);
 }
 
+/* Table: full-width with fluid columns; no fixed min-width that fights
+   mobile viewports.  Long labels wrap; the container adds a horizontal
+   scroll only if the content truly exceeds the viewport. */
 table {
   width: 100%;
-  min-width: 560px;
   border-collapse: collapse;
   font-size: 0.92rem;
   line-height: 1.55;
+}
+
+/* Optional small-screen guard: if the viewport is wide enough, give the
+   table a modest minimum so columns don't become uncomfortably tiny.
+   This is intentionally below common laptop widths (1024px) so it does
+   not cause overflow on tablets or phones. */
+@media (min-width: 1024px) {
+  table {
+    min-width: 560px;
+  }
 }
 
 caption {
