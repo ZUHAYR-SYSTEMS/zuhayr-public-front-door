@@ -73,6 +73,25 @@ check(
     (readFileSync(join(dist, 'sitemap.xml'), 'utf8').match(/<loc>/g) || []).length === 7,
 )
 
+// Recovery assurance hardening derived from Customer #0 controlled failure tests.
+// Generated sitemap must preserve the governed source exactly.
+const sourceSitemapPath = join(root, 'public', 'sitemap.xml')
+const productionSitemapPath = join(dist, 'sitemap.xml')
+check(
+  'production sitemap matches governed source',
+  existsSync(sourceSitemapPath) &&
+    existsSync(productionSitemapPath) &&
+    readFileSync(productionSitemapPath, 'utf8') ===
+      readFileSync(sourceSitemapPath, 'utf8'),
+)
+
+// Generated production shell must retain the React mount point.
+const productionHtmlPath = join(dist, 'index.html')
+check(
+  'production artifact contains React root mount',
+  existsSync(productionHtmlPath) &&
+    readFileSync(productionHtmlPath, 'utf8').includes('<div id="root"></div>'),
+)
 if (failures > 0) {
   console.error(`\n${failures} smoke check(s) failed`)
   process.exit(1)
