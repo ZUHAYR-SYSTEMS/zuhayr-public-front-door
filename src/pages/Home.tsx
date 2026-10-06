@@ -25,15 +25,16 @@ export default function Home() {
               <p className="eyebrow">ZUHAYR SYSTEMS / PRODUCTION ENGINEERING</p>
               <h1 id="hero-title">
                 Production systems
-                <br />
                 that can prove
-                <br />
                 they work.
               </h1>
               <p className="hero-sub">
                 When production becomes fragile, ZUHAYR finds the smallest
                 safe path back to an operable system — then proves the
                 recovery actually works.
+                Production System Rescue & Reliability is our flagship capability,
+                and engagements can begin with the buyer's actual problem where
+                existing proven capability supports it.
               </p>
               <div className="actions">
                 <Link className="btn" to="/explore">
@@ -48,6 +49,48 @@ export default function Home() {
           </div>
           <div className="container hero-signature">
             <Signature />
+          </div>
+        </section>
+
+        <section id="continuity" className="section" aria-labelledby="continuity-title">
+          <div className="container">
+            <p className="eyebrow">PRODUCTION CONTINUITY</p>
+            <h2 id="continuity-title">Evidence-backed recovery & reliability operating model</h2>
+            <p className="section-lede">
+              Production Continuity is an operating model — evidence-backed,
+              recovery- and reliability-oriented, and not insurance or an
+              unproven SLA/RTO/RPO guarantee. Customer #0 may support
+              internal/lab validation claims only. Evidence maturity
+              framework: INTERNAL / LAB-VERIFIED (internal production
+              records, verified recovery), CLIENT-PROVEN (client-engagement
+              outcomes with full disclosure), PRODUCTION-PROVEN (deployed
+              system results). Never promote evidence maturity beyond
+              repository truth.
+            </p>
+            <div className="continuity-features">
+              <div className="feature">
+                <h3>Evidence-backed</h3>
+                <p>
+                  Every claim is traced to observable outcomes — internal
+                  production records, verified recovery sequences, and hashed
+                  evidence chains.
+                </p>
+              </div>
+              <div className="feature">
+                <h3>Recovery‑reliability oriented</h3>
+                <p>
+                  Focuses on proven restore paths, integrity checks, and
+                  monitored degradation — not theoretical guarantees.
+                </p>
+              </div>
+              <div className="feature">
+                <h3>Bounded qualification</h3>
+                <p>
+                  Scope is set from Review findings; residual risks are stated
+                  plainly; no guaranteed times or replication claims.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -288,8 +331,10 @@ export default function Home() {
             <p className="eyebrow">07 — ENGAGEMENTS</p>
             <h2 id="engagements-title">What we can start with</h2>
             <p className="section-lede">
-              Every engagement starts with the Review. Deeper work happens
-              only when the findings justify it — and only by agreement.
+              Visitors arrive for many reasons: a fragile system that needs rescue,
+              an automation project taking shape, a need for reliability assurance,
+              or simply exploring what ZUHAYR does. Deeper work happens only
+              when the findings justify it — and only by agreement.
             </p>
             <div className="cards tiers">
               <article className="card">
