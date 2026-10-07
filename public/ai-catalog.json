@@ -9,8 +9,9 @@
     "/recovery-resilience": "Recovery & Resilience",
     "/backup-restore-recovery": "Backup & Restore Recovery",
     "/proof/production-rescue": "Production Rescue Proof",
-    "/proof/recovery-resilience": "Recovery Resilience Proof"
+    "/proof/recovery-resilience": "Recovery Resilience Proof",
+    "/proof/lead-intake-automation": "Governed Automation Proof"
   },
   "contact": "admin@zuhayrsystems.com",
-  "generated": "2026-10-05"
+  "generated": "2026-10-07"
 }

@@ -37,6 +37,12 @@ export interface PublicEvidence {
 const INTERNAL_DISCLOSURE =
   'This proof comes from our own internal production infrastructure — not a client engagement, and no client data is involved.'
 
+const CUSTOMER_ZERO_DISCLOSURE =
+  'Customer #0 controlled benchmark. Internally validated. Not client-proven. Not production-proven. No guarantee implied.'
+
+const LAB_DISCLOSURE =
+  'Simulated automation lab using synthetic data — built and tested locally. Not client work and not a production deployment.'
+
 export const PRODUCTION_RESCUE_EVIDENCE: PublicEvidence = {
   id: 'production-rescue',
   title: 'Production rescue: inert to operational',
@@ -83,7 +89,58 @@ export const RECOVERY_RESILIENCE_EVIDENCE: PublicEvidence = {
   routeLabel: 'Read the recovery proof',
 }
 
+export const APPLICATION_BUSINESS_RECOVERY_EVIDENCE: PublicEvidence = {
+  id: 'application-business-recovery',
+  title: 'Application & Business Recovery Assurance',
+  capability: 'Recovery & Resilience',
+  maturity: 'INTERNAL VALIDATION',
+  disclosure: CUSTOMER_ZERO_DISCLOSURE,
+  situation:
+    'Customer #0 controlled benchmark: admitted work before failure, injected failure, recovery, then item-level reconciliation of pre-failure and post-recovery states.',
+  verifiedOutcomes: [
+    { label: 'ADMITTED', state: '30' },
+    { label: 'RECONCILED', state: '30' },
+    { label: 'UNRESOLVED', state: '0' },
+    { label: 'LOST', state: '0' },
+  ],
+  limitations: [
+    'Customer #0 controlled benchmark only — not client-proven, not production-proven.',
+    'Disposable local target — no production contact, no timescale claim.',
+    'Infrastructure availability does not establish application/business state verification.',
+    'No guarantee implied — no RTO/RPO guarantee, no SLA, no universal recovery claim.',
+  ],
+  evidenceType: 'Measured reconciliation benchmark',
+  route: '/proof/recovery-resilience',
+  routeLabel: 'Read the recovery proof',
+}
+
+export const GOVERNED_AUTOMATION_EVIDENCE: PublicEvidence = {
+  id: 'governed-automation',
+  title: 'Lead intake that validates and routes',
+  capability: 'Governed Automation',
+  maturity: 'INTERNAL VALIDATION',
+  disclosure: LAB_DISCLOSURE,
+  situation:
+    'Manual lead intake creates inconsistent handling, delayed follow-up, and unclear routing between teams. A bounded intake workflow validates and normalizes each submission, then routes it explicitly.',
+  verifiedOutcomes: [
+    { label: 'VALID SALES LEAD', state: 'HTTP 200, routed to sales' },
+    { label: 'VALID SUPPORT LEAD', state: 'HTTP 200, routed to support' },
+    { label: 'INVALID INPUT', state: 'HTTP 400 with field-level errors' },
+    { label: 'REPRODUCED', state: '3/3 scenarios via verification script' },
+  ],
+  limitations: [
+    'Simulated lab with synthetic data — not client work, not a production deployment.',
+    'Local verification only — no uptime, traffic, load, or SLA evidence.',
+    'A real deployment needs environment-specific configuration and credentials.',
+  ],
+  evidenceType: 'Reproducible local verification (n8n 2.36.9)',
+  route: '/proof/lead-intake-automation',
+  routeLabel: 'Read the automation proof',
+}
+
 export const PUBLIC_EVIDENCE: PublicEvidence[] = [
   PRODUCTION_RESCUE_EVIDENCE,
   RECOVERY_RESILIENCE_EVIDENCE,
+  APPLICATION_BUSINESS_RECOVERY_EVIDENCE,
+  GOVERNED_AUTOMATION_EVIDENCE,
 ]

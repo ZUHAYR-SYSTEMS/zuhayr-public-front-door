@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { CtaBand, Disclosure, SiteFooter, SiteHeader } from '../components/layout'
 import { EvidenceObject } from '../components/evidence'
-import { RECOVERY_RESILIENCE_EVIDENCE } from '../evidence'
+import { RECOVERY_RESILIENCE_EVIDENCE, APPLICATION_BUSINESS_RECOVERY_EVIDENCE } from '../evidence'
 import { usePageMeta } from '../meta'
 import { RECOVERY_MAILTO } from '../site'
 
@@ -96,7 +96,27 @@ export default function ProofRecovery() {
                 and an exact hash match.
               </p>
             </Step>
-            <Step num="05" id="prr-failclosed" title="Fail-closed behavior">
+            <Step num="05" id="prr-business-state" title="Application & business state verification">
+              <p>
+                Recovery goes beyond infrastructure availability: a Customer #0
+                controlled benchmark demonstrated item-level reconciliation of
+                admitted business work before and after recovery — 30 admitted,
+                30 reconciled, 0 unresolved, 0 lost.
+              </p>
+              <details className="disclose">
+                <summary>What this actually proves</summary>
+                <div className="disclose-body">
+                  <p>
+                    A disposable local target with 30 admitted items experienced
+                    controlled failure, recovery, and item-level reconciliation.
+                    The zero result is measured by sensitivity controls, not
+                    asserted. This is not client-proven, not production-proven,
+                    and no guarantee is implied.
+                  </p>
+                </div>
+              </details>
+            </Step>
+            <Step num="06" id="prr-failclosed" title="Fail-closed behavior">
               <p>
                 With no destination configured, the exporter provably sent
                 nothing and kept the local snapshot instead of failing
@@ -105,7 +125,7 @@ export default function ProofRecovery() {
                 weaker ones.
               </p>
             </Step>
-            <Step num="06" id="prr-learning" title="Failure learning">
+            <Step num="07" id="prr-learning" title="Failure learning">
               <p>
                 The failed first restore attempt, the exporter that had
                 nowhere to send, and the monitoring check that cried wolf are
@@ -113,7 +133,7 @@ export default function ProofRecovery() {
                 makes the passing runs believable.
               </p>
             </Step>
-            <Step num="07" id="prr-outcome" title="Verified outcome">
+            <Step num="08" id="prr-outcome" title="Verified outcome">
               <ol
                 className="chain chain-compact"
                 aria-label="Proven recovery steps"
@@ -135,6 +155,10 @@ export default function ProofRecovery() {
                   <span>Upload, independent read-back, exact hash match.</span>
                 </li>
                 <li>
+                  <strong>Application & business state verification</strong>
+                  <span>Customer #0 benchmark: 30 admitted, 30 reconciled, 0 unresolved, 0 lost.</span>
+                </li>
+                <li>
                   <strong>Fail-closed behavior</strong>
                   <span>Sent nothing; kept the snapshot.</span>
                 </li>
@@ -144,7 +168,7 @@ export default function ProofRecovery() {
                 </li>
               </ol>
             </Step>
-            <Step num="08" id="prr-limits" title="Limitations">
+            <Step num="09" id="prr-limits" title="Limitations">
               <p>
                 This is not disaster recovery with guaranteed times, not
                 replication, not multi-region failover, and not a client
@@ -152,10 +176,11 @@ export default function ProofRecovery() {
                 intentionally absent future components throughout.
               </p>
             </Step>
-            <Step num="09" id="prr-provenance" title="Provenance / maturity">
+            <Step num="10" id="prr-provenance" title="Provenance / maturity">
               <EvidenceObject evidence={RECOVERY_RESILIENCE_EVIDENCE} />
+              <EvidenceObject evidence={APPLICATION_BUSINESS_RECOVERY_EVIDENCE} />
             </Step>
-            <Step num="10" id="prr-next" title="Next action">
+            <Step num="11" id="prr-next" title="Next action">
               <p>
                 Measure your recovery against this standard: a Recovery
                 Readiness Review checks your backup path, rehearses where it

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import BackupRestore from './pages/BackupRestore'
 import Home from './pages/Home'
+import ProofAutomation from './pages/ProofAutomation'
 import ProofRecovery from './pages/ProofRecovery'
 import ProofRescue from './pages/ProofRescue'
 import Recovery from './pages/Recovery'
@@ -40,6 +41,10 @@ export default function App() {
         <Route path="/backup-restore-recovery" element={<BackupRestore />} />
         <Route path="/proof/production-rescue" element={<ProofRescue />} />
         <Route path="/proof/recovery-resilience" element={<ProofRecovery />} />
+        <Route
+          path="/proof/lead-intake-automation"
+          element={<ProofAutomation />}
+        />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>

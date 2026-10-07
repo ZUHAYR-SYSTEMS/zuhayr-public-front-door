@@ -247,6 +247,11 @@ export default function Home() {
                     </dd>
                   </div>
                 </dl>
+                <p className="card-link">
+                  <Link to="/proof/lead-intake-automation">
+                    Verified lead-intake proof ›
+                  </Link>
+                </p>
               </article>
             </div>
           </div>
@@ -301,6 +306,9 @@ export default function Home() {
               </Link>
               <Link className="btn-ghost" to="/proof/recovery-resilience">
                 Read the recovery proof ›
+              </Link>
+              <Link className="btn-ghost" to="/proof/lead-intake-automation">
+                Read the automation proof ›
               </Link>
             </div>
           </div>

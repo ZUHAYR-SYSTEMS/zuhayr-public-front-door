@@ -36,6 +36,19 @@ for (const s of [
   'not disaster recovery with guaranteed times', // limitation visible
   'admin@zuhayrsystems.com', // contact intact
   '/recovery-resilience', // routes intact
+  'Application & Business Recovery Assurance', // Customer #0 evidence title
+  'Customer #0 controlled benchmark', // Customer #0 disclosure
+  'Measured reconciliation benchmark', // Customer #0 evidence type
+  '30 admitted', // Customer #0 reconciliation metric
+  '30 reconciled', // Customer #0 reconciliation metric
+  '0 unresolved', // Customer #0 reconciliation metric
+  '0 lost', // Customer #0 reconciliation metric
+  'Lead intake that validates and routes', // Governed Automation evidence title
+  'Simulated automation lab using synthetic data', // lab disclosure
+  'Reproducible local verification (n8n 2.36.9)', // automation evidence type
+  '3/3 scenarios via verification script', // automation verified result
+  '/proof/lead-intake-automation', // automation proof route
+  'not a production deployment', // lab boundary
 ]) {
   check(`bundle contains "${s}"`, bundle.includes(s))
 }
@@ -68,9 +81,9 @@ check(
     readFileSync(join(dist, '_redirects'), 'utf8').includes('/* /index.html 200'),
 )
 check(
-  'sitemap lists 7 routes',
+  'sitemap lists 8 routes',
   existsSync(join(dist, 'sitemap.xml')) &&
-    (readFileSync(join(dist, 'sitemap.xml'), 'utf8').match(/<loc>/g) || []).length === 7,
+    (readFileSync(join(dist, 'sitemap.xml'), 'utf8').match(/<loc>/g) || []).length === 8,
 )
 
 // Recovery assurance hardening derived from Customer #0 controlled failure tests.

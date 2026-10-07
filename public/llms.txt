@@ -9,6 +9,7 @@ Public routes:
 - /recovery-resilience: Backup verification and recovery rehearsal
 - /backup-restore-recovery: Backup assessment and restore rehearsal
 - /proof/production-rescue: Internal proof of production rescue (922 to 0 restarts, config-only fix)
-- /proof/recovery-resilience: Internal proof of recovery rehearsal (hash-verified backups, isolated restore)
+- /proof/recovery-resilience: Internal proof of recovery rehearsal (hash-verified backups, isolated restore, Customer #0 reconciliation benchmark 30/30/0/0)
+- /proof/lead-intake-automation: Governed Automation proof — verified lead intake workflow (validation, normalization, sales/support routing; simulated lab with synthetic data)
 
 For engagement inquiries: admin@zuhayrsystems.com
